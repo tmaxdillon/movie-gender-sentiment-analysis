@@ -6,11 +6,11 @@ PATH = "comments"
 def make_dfs():
     filenames2 = find_csv_filenames(PATH)
     for name in filenames2:
-        print(name)
+        #print(name)
         new_name = PATH+"/"+name
         df = pd.read_csv(new_name, encoding ='latin1')
         my_df = pd.DataFrame(data = df)
-        print(my_df.head())
+        my_df.to_csv("comments_df_test.csv", encoding='latin1')
     return my_df
 
 
@@ -19,5 +19,3 @@ def find_csv_filenames(path_to_dir, suffix=".csv"):
     return [ filename for filename in filenames if filename.endswith( suffix ) ]
     
 
-
-make_dfs()
