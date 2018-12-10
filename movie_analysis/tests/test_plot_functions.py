@@ -1,6 +1,6 @@
 # Units tests for plotting functions
 
-import plot_functions as pf
+from movie_analysis import plot_functions as pf
 import os.path
 
 def test_pdfs_created():
@@ -16,8 +16,8 @@ def test_pdfs_created():
 
 def test_fit():
 	# Compare the linear fit against a line
-	a = [0 1 2 3 4 5]
-	b = [3 6 7 9 11 13]
+	a = [0, 1, 2, 3, 4, 5]
+	b = [3, 6, 7, 9, 11, 13]
 	out = pf.linear_regression(a,b,'..Figures/tmp.pdf')
 	assert fit == b is True
 
