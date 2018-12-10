@@ -141,6 +141,19 @@ def write_csv(youtube_id, movie_id):
     filename = str(movie_id) + '.csv'
     df.to_csv(filename, encoding = 'UTF-8', index=False)
 
+def download_from_the_list(input_file):
+    for i in range(len(input_file)):
+        youtube_id = input_file['youtube_id'][i]
+        movie_id = input_file['movie_id'][i]
+            
+        if not youtube_id or not movie_id:
+            raise ValueError('you need to specify a youtube_id and a movie_id')
+                
+        print('Downloading Youtube comments for video:', youtube_id)
+        write_csv(youtube_id, movie_id)
+            
+    print('\nDone!')
+
 def main(argv):
 
     try:
