@@ -4,7 +4,7 @@ and analyze_comments_as_tblob modules"""
 import os
 import unittest
 import pandas as pd
-import get_sentiment_score as gss
+from movie_analysis import get_sentiment_score as gss
 
 class TestSentiment(unittest.TestCase):
 
