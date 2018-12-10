@@ -68,7 +68,7 @@ def viz_distribution(data,type):
         fig.savefig('Figures/Cast_Size_dist.pdf')
 
 #extract subset of data
-def get_subset(df,strata,subsetno
+def get_subset(df,strata,subsetno):
     df_subset = pd.DataFrame(columns=list(df)) #initialize
     df_real = df.dropna() #get rid of nans
     edges = np.linspace(0,1,strata+1) #edges of data strata
