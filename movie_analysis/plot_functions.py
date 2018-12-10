@@ -14,7 +14,7 @@ def scatter_scores(GDS,SS):
 	plt.xlabel('Gender Diversity Score')
 	plt.ylabel('Sentiment Analysis Score')
 	#plt.show()
-	fig.savefig('scatter.pdf')
+	fig.savefig('Figures/scatter.pdf')
 
 # Linear Regression:
 def linear_regression(GDS,SS):
@@ -26,7 +26,7 @@ def linear_regression(GDS,SS):
 	plt.xlabel('Gender Diversity Score')
 	plt.ylabel('Sentiment Analysis Score')
 	#plt.show()
-	fig.savefig('linear_fit.pdf')
+	fig.savefig('Figures/linear_fit.pdf')
 
 # Nonlinear least-squares fit:
 def nonlinear_LSF(GDS,SS):
@@ -40,4 +40,4 @@ def nonlinear_LSF(GDS,SS):
 	plt.ylabel('Sentiment Score')
 	plt.legend()
 	#plt.show()
-	fig.savefig('nonlinear_LSF.pdf')
+	fig.savefig('Figures/nonlinear_LSF.pdf')
