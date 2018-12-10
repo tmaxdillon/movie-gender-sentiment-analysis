@@ -25,7 +25,7 @@ Inputs: dataframe (with gender diversity score added as column), number of data 
 Output: subset dataframe
 
 ### Example
-For an example on how these functions can be used, refer to [create_subset.ipynb] (https://github.com/tmaxdillon/movie-gender-sentiment-analysis/blob/master/movie_analysis/create_subset.ipynb) 
+For an example/demo on how these functions can be used, refer to [create_subset_demo.ipynb] (https://github.com/tmaxdillon/movie-gender-sentiment-analysis/blob/master/movie_analysis/create_subset.ipynb) 
 
 ## Comment Extraction: 
 Use [comment_downloader.py](https://github.com/tmaxdillon/movie-gender-sentiment-analysis/blob/master/movie_analysis/comment_downloader.py) to download comments from each movie trailer.
