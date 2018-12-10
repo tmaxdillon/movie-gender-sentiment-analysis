@@ -42,14 +42,14 @@ class TestSentiment(unittest.TestCase):
     def test_find_csv_oneshot(self):
         """This function tests that the list of filenames returned is not empty"""
 
-        self.assertFalse(len(gss.find_csv_filenames(mv.data_path, suffix=".csv")) == 0)
+        self.assertFalse(len(gss.find_csv_filenames(gss.data_path, suffix=".csv")) == 0)
 
     def test_find_csv_edge(self):
         """This function tests that an exception is raised if the function is passed
         the wrong file extension
         """
 
-        self.assertRaises(Exception, gss.find_csv_filenames(mv.data_path, ".html"))
+        self.assertRaises(Exception, gss.find_csv_filenames(gss.data_path, ".html"))
 
     def test_find_csv_2(self):
         """This function tests that the function returns the corrcet filename"""
