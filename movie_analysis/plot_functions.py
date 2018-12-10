@@ -7,29 +7,31 @@ from scipy.optimize import curve_fit
 import scipy.stats as stats
 
 # Scatter plot of all movies:
-def scatter_scores(GDS,SS):
+def scatter_scores(GDS,SS,FigureName):
 	fig = plt.figure()
 	plt.title("Sentiment analysis of YouTube comments on gender diverse films")
 	plt.scatter(GDS,SS)
 	plt.xlabel('Gender Diversity Score')
 	plt.ylabel('Sentiment Analysis Score')
 	#plt.show()
-	fig.savefig('Figures/scatter.pdf')
+	fig.savefig(FigureName)
 
 # Linear Regression:
-def linear_regression(GDS,SS):
+def linear_regression(GDS,SS,FigureName):
 	fig = plt.figure()
 	slope, intercept, r_value, p_value, std_err = stats.linregress(GDS,SS)
 	plt.title("Sentiment analysis of YouTube comments on gender diverse films")
 	plt.scatter(GDS,SS)
-	plt.plot(GDS,GDS*slope+intercept,'r--')
+	fit = GDS*slope+intercept
+	plt.plot(GDS,fit,'r--')
 	plt.xlabel('Gender Diversity Score')
 	plt.ylabel('Sentiment Analysis Score')
 	#plt.show()
-	fig.savefig('Figures/linear_fit.pdf')
+	fig.savefig(FigureName)
+	return fit
 
 # Nonlinear least-squares fit:
-def nonlinear_LSF(GDS,SS):
+def nonlinear_LSF(GDS,SS,FigureName):
 	def func(x,a,b,c):
 		return a*np.exp(-b*x)+c
 	popt, pcov = curve_fit(func,GDS,SS)
@@ -40,4 +42,4 @@ def nonlinear_LSF(GDS,SS):
 	plt.ylabel('Sentiment Score')
 	plt.legend()
 	#plt.show()
-	fig.savefig('Figures/nonlinear_LSF.pdf')
+	fig.savefig(FigureName)
