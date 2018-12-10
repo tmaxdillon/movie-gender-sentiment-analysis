@@ -1,16 +1,22 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec 10 11:16:20 2018
+
+@author: jamie
+"""
+
 #!/usr/bin/env python
 
 from __future__ import print_function
 
-import os
 import sys
 import time
 import json
 import requests
-import argparse
 import lxml.html
-import io
-
+import lxml.etree
+import pandas as pd
 from lxml.cssselect import CSSSelector
 
 YOUTUBE_COMMENTS_URL = 'https://www.youtube.com/all_comments?v={youtube_id}'
@@ -38,7 +44,6 @@ def extract_comments(html):
                'time': time_sel(item)[0].text_content().strip(),
                'author': author_sel(item)[0].text_content()}
 
-
 def extract_reply_cids(html):
     tree = lxml.html.fromstring(html)
     sel = CSSSelector('.comment-replies-header > .load-comments')
@@ -63,11 +68,13 @@ def download_comments(youtube_id, sleep=1):
     response = session.get(YOUTUBE_COMMENTS_URL.format(youtube_id=youtube_id))
     html = response.text
     reply_cids = extract_reply_cids(html)
+    
+    text = []
 
     ret_cids = []
     for comment in extract_comments(html):
         ret_cids.append(comment['cid'])
-        yield comment
+        text.append(unicode(comment['text']))
 
     page_token = find_value(html, 'data-token')
     session_token = find_value(html, 'XSRF_TOKEN', 4)
@@ -98,7 +105,7 @@ def download_comments(youtube_id, sleep=1):
         for comment in extract_comments(html):
             if comment['cid'] not in ret_cids:
                 ret_cids.append(comment['cid'])
-                yield comment
+                text.append(unicode(comment['text']))
 
         first_iteration = False
         time.sleep(sleep)
@@ -124,38 +131,32 @@ def download_comments(youtube_id, sleep=1):
         for comment in extract_comments(html):
             if comment['cid'] not in ret_cids:
                 ret_cids.append(comment['cid'])
-                yield comment
+                text.append(unicode(comment['text']))
         time.sleep(sleep)
+    return text
 
+def write_csv(youtube_id, movie_id):
+    comments = download_comments(youtube_id)
+    df = pd.DataFrame({'comments':comments})
+    filename = str(movie_id) + '.csv'
+    df.to_csv(filename, encoding = 'UTF-8', index=False)
 
 def main(argv):
-    parser = argparse.ArgumentParser(add_help=False, description=('Download Youtube comments without using the Youtube API'))
-    parser.add_argument('--help', '-h', action='help', default=argparse.SUPPRESS, help='Show this help message and exit')
-    parser.add_argument('--youtubeid', '-y', help='ID of Youtube video for which to download the comments')
-    parser.add_argument('--output', '-o', help='Output filename (output format is line delimited JSON)')
-    parser.add_argument('--limit', '-l', type=int, help='Limit the number of comments')
 
     try:
-        args = parser.parse_args(argv)
-
-        youtube_id = args.youtubeid
-        output = args.output
-        limit = args.limit
-
-        if not youtube_id or not output:
-            parser.print_usage()
-            raise ValueError('you need to specify a Youtube ID and an output filename')
-
-        print('Downloading Youtube comments for video:', youtube_id)
-        count = 0
-        with io.open(output, 'w', encoding='utf8') as fp:
-            for comment in download_comments(youtube_id):
-                print(json.dumps(comment, ensure_ascii=False), file=fp)
-                count += 1
-                sys.stdout.write('Downloaded %d comment(s)\r' % count)
-                sys.stdout.flush()
-                if limit and count >= limit:
-                    break
+        filename = argv
+        input_file = pd.read_csv(filename, sep=',')
+        
+        for i in range(len(input_file)):
+            youtube_id = input_file['youtube_id'][i]
+            movie_id = input_file['movie_id'][i]
+            
+            if not youtube_id or not movie_id:
+                raise ValueError('you need to specify a youtube_id and a movie_id')
+                
+            print('Downloading Youtube comments for video:', youtube_id)
+            write_csv(youtube_id, movie_id)
+            
         print('\nDone!')
 
 
@@ -165,4 +166,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main(sys.argv[1])

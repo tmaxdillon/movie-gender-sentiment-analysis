@@ -67,3 +67,17 @@ def viz_distribution(data,type):
     elif type == 'cast size':
         fig.savefig('Figures/Cast_Size_dist.pdf')
 
+#extract subset of data
+def get_subset(df,strata,subsetno
+    df_subset = pd.DataFrame(columns=list(df)) #initialize
+    df_real = df.dropna() #get rid of nans
+    edges = np.linspace(0,1,strata+1) #edges of data strata
+    for i in range(0,strata):
+        df_temp = df_real[(df_real['gender diversity score'] > edges[i]) &
+                          (df_real['gender diversity score'] < edges[i+1])]
+        temp_ind = np.round(np.linspace(0,len(df_temp)-1,subsetno/strata))
+        df_subset = pd.concat([df_subset, 
+                          df_temp.sort_values(by=['gender diversity score']).iloc[temp_ind,:].reset_index(drop=True)], 
+                             ignore_index=True)
+    return df_subset
+
