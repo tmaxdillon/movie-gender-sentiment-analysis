@@ -141,7 +141,7 @@ def write_csv(youtube_id, movie_id):
     filename = str(movie_id) + '.csv'
     df.to_csv(filename, encoding = 'UTF-8', index=False)
 
-def download_from_the_list(input_file):
+def download_from_list(input_file):
     for i in range(len(input_file)):
         youtube_id = input_file['youtube_id'][i]
         movie_id = input_file['movie_id'][i]
