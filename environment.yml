@@ -1,0 +1,5 @@
+name: movie_analysis
+channels:
+  - defaults
+prefix: /Users/franzrac/miniconda3/envs/movie_analysis
+
