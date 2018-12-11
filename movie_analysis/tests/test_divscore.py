@@ -24,8 +24,7 @@ class TestDivScore(unittest.TestCase):
         """
 
         [ds,cs] = dsm.compute_diversity_score()
-        self.assertTrue(type.ds == np.float64)
-        self.assertTrue(type.cs == np.float64)
+        self.assertTrue(type.ds == np.float64 & type.cs == np.float64)
 
     def test_savefig(self):
         """This function tests that a figure is saved when viz_distribution is run"""
@@ -42,6 +41,5 @@ class TestDivScore(unittest.TestCase):
         subset = dsm.get_subset(df,strata,subsetno)
         self.assertEqual(len(subset),subsetno)
 
-SUITE = unittest.TestLoader().loadTestsFromTestCase(TestSentiment)
-_ = unittest.TextTestRunner().run(SUITE)
+
 
