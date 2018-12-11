@@ -18,6 +18,6 @@ def test_pdfs_created():
 def test_fit():
 	# Compare the linear fit against a line
 	a = np.array([0, 1, 2, 3, 4, 5])
-	b = np.array([3, 6, 7, 9, 11, 13])
+	b = np.array([3, 5, 7, 9, 11, 13])
 	fit = pf.linear_regression(a,b,'Figures/tmp.pdf')
-	assert np.all(fit == b) is True
+	assert sum(fit-b) == 0
