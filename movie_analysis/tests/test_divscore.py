@@ -9,6 +9,7 @@
 import os.path
 import unittest
 import pandas as pd
+import json
 from movie_analysis import diversity_score_module as dsm
 
 class TestDivScore(unittest.TestCase):
@@ -29,13 +30,13 @@ class TestDivScore(unittest.TestCase):
     def test_savefig(self):
         """This function tests that a figure is saved when viz_distribution is run"""
         file = 'Figures/Full_Diversity_Dist.pdf'
-        dsm.viz_distribution([1,2,3,4,5,6,7],'diversity score')
+        dsm.viz_distribution(np.array([2,3,1,8,3,8]),'diversity score')
         assert os.path.isfile(file) is True
 
     def test_subsetrows(self):
         """This function tests if the returned dataframe has the correct number of rows
         """
-        
+        df = pd.read_csv('data/raw_data/tmdb_5000_credits.csv')
         subsetno = 70
         strata = 10
         subset = dsm.get_subset(df,strata,subsetno)
