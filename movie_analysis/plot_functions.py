@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib
+matplotlib.use('PS')
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import scipy.stats as stats
