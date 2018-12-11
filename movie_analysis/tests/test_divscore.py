@@ -9,7 +9,7 @@
 import os.path
 import unittest
 import pandas as pd
-import numpu as np
+import numpy as np
 import json
 from movie_analysis import diversity_score_module as dsm
 
