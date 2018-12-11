@@ -1,3 +1,5 @@
 {
+  "movie_analysis/tests/test_divscore.py": true,
+  "movie_analysis/tests/test_plot_functions.py": true,
   "movie_analysis/tests/test_sentiment.py": true
 }
