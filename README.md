@@ -1,10 +1,9 @@
 # movie-gender-sentiment-analysis
 Project for CSE 583, Autumn 2018.
+[movie_analysis](https://github.com/tmaxdillon/movie-gender-sentiment-analysis/tree/master/movie_analysis) folder contains the python codes for the entire process. 
 
 ## Group Members
 Eric Gomez, Kate Van Ness, Rachel Franz, Trent Dillon, Jamie Park
-
-[movie_analysis](https://github.com/tmaxdillon/movie-gender-sentiment-analysis/tree/master/movie_analysis) folder contains the python codes for the entire process. 
 
 ## Computing Diversity Score
 Use [diversity_score_module.py](https://github.com/tmaxdillon/movie-gender-sentiment-analysis/blob/master/movie_analysis/diversity_score_module.py) to compute the diversity score of a selection of movies from IMDB data, do analytics on the dataset and extract a subset of the movies for further analysis.
