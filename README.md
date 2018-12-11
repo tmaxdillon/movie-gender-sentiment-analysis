@@ -52,16 +52,6 @@ The package is organized as follows:
 ├── Demo.ipynb
 ├── LICENSE
 ├── README.md
-├── __pycache__
-│   ├── analyze_comments_tblob.cpython-36.pyc
-│   ├── analyze_comments_tblob.cpython-37.pyc
-│   ├── get_sentiment_score.cpython-36.pyc
-│   ├── get_sentiment_score.cpython-37.pyc
-│   ├── make_comments_df.cpython-36.pyc
-│   └── make_comments_df.cpython-37.pyc
-├── dist
-│   ├── movie_analysis-1.0-py3.6.egg
-│   └── movie_analysis-1.0-py3.7.egg
 ├── doc
 │   ├── README.txt
 │   └── project_management
@@ -77,29 +67,8 @@ The package is organized as follows:
 │   │   ├── Cast_Size_dist.pdf
 │   │   ├── Full_Diversity_Dist.pdf
 │   │   ├── linear_fit.pdf
-│   │   ├── scatter.pdf
-│   │   └── tmp.pdf
-│   ├── Untitled.ipynb
+│   │   └── scatter.pdf
 │   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-36.pyc
-│   │   ├── __init__.cpython-37.pyc
-│   │   ├── analyze_comments_tblob.cpython-36.pyc
-│   │   ├── analyze_comments_tblob.cpython-37.pyc
-│   │   ├── diversity_score_module.cpython-36.pyc
-│   │   ├── diversity_score_module.cpython-37.pyc
-│   │   ├── get_YT_URL.cpython-36.pyc
-│   │   ├── get_sentiment_score.cpython-36.pyc
-│   │   ├── get_sentiment_score.cpython-37.pyc
-│   │   ├── make_comments_df.cpython-36.pyc
-│   │   ├── make_comments_df.cpython-37.pyc
-│   │   ├── movie_analysis.cpython-36.pyc
-│   │   ├── movie_correlation_plots.cpython-36.pyc
-│   │   ├── movie_correlation_plots.cpython-37.pyc
-│   │   ├── plot_functions.cpython-36.pyc
-│   │   ├── plot_functions.cpython-37.pyc
-│   │   ├── version.cpython-36.pyc
-│   │   └── version.cpython-37.pyc
 │   ├── analyze_comments_tblob.py
 │   ├── comment_downloader.py
 │   ├── create_subset_demo.ipynb
@@ -134,27 +103,9 @@ The package is organized as follows:
 │   │   ├── Figures
 │   │   │   └── tmp.pdf
 │   │   ├── __init__.py
-│   │   ├── __pycache__
-│   │   │   ├── __init__.cpython-36.pyc
-│   │   │   ├── __init__.cpython-37.pyc
-│   │   │   ├── test_divscore.cpython-36-PYTEST.pyc
-│   │   │   ├── test_divscore.cpython-37-PYTEST.pyc
-│   │   │   ├── test_plot_functions.cpython-36-PYTEST.pyc
-│   │   │   ├── test_plot_functions.cpython-37-PYTEST.pyc
-│   │   │   ├── test_sentiment.cpython-36-PYTEST.pyc
-│   │   │   ├── test_sentiment.cpython-36.pyc
-│   │   │   └── test_sentiment.cpython-37-PYTEST.pyc
-│   │   ├── test1
-│   │   │   └── testing.csv
 │   │   ├── test_divscore.py
 │   │   ├── test_plot_functions.py
 │   │   └── test_sentiment.py
 │   └── version.py
-├── movie_analysis.egg-info
-│   ├── PKG-INFO
-│   ├── SOURCES.txt
-│   ├── dependency_links.txt
-│   ├── requires.txt
-│   └── top_level.txt
 └── setup.py
 ```
