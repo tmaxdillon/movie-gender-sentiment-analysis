@@ -7,10 +7,13 @@ from os import listdir
 import os.path as op
 import pandas as pd
 import numpy as np
-from .analyze_comments_tblob import analyze_comments
-import movie_analysis as mv
+# from .analyze_comments_tblob import analyze_comments
+import analyze_comments_tblob as act
+# import movie_analysis as mv
 
-data_path = op.join(mv.__path__[0], 'data/movie_comments')
+# data_path = op.join(mv.__path__[0], 'data/movie_comments')
+data_path = 'data/movie_comments'
+
 
 def get_sentiment_score():
     """This function makes a new df with the movie_id and sentiment score
@@ -25,7 +28,7 @@ def get_sentiment_score():
         sentiment_df = pd.DataFrame(data=df)
         sentiment_df.columns = ["comment"]
         if not sentiment_df.empty:
-            sentiment_df = analyze_comments(sentiment_df)
+            sentiment_df = act.analyze_comments(sentiment_df)
             if name.endswith('.csv'):
                 name = name[:-4]
             sentiment_score = np.asarray(sentiment_df.iloc[:, 1], dtype=np.float).mean()
