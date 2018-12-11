@@ -44,4 +44,14 @@ from comment_downloader import download_from_the_list
 
 download_from_the_list(input) #input should be a pandas dataframe with the columns "youtube_id" and "movie_id"
 ```
+##Directory Structure
 
+The package is organized as follows:
+
+```bash
+tree=$(tree -tf --noreport -I '*~' --charset ascii $1 |
+       sed -e 's/| \+/  /g' -e 's/[|`]-\+/ */g' -e 's:\(* \)\(\(.*/\)\([^/]\+\)\):\1[\4](\2):g')
+
+printf "# Project tree\n\n${tree}"
+
+```
