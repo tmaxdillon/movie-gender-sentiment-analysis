@@ -44,14 +44,117 @@ from comment_downloader import download_from_the_list
 
 download_from_the_list(input) #input should be a pandas dataframe with the columns "youtube_id" and "movie_id"
 ```
-##Directory Structure
+## Directory Structure
 
 The package is organized as follows:
 
 ```bash
-tree=$(tree -tf --noreport -I '*~' --charset ascii $1 |
-       sed -e 's/| \+/  /g' -e 's/[|`]-\+/ */g' -e 's:\(* \)\(\(.*/\)\([^/]\+\)\):\1[\4](\2):g')
-
-printf "# Project tree\n\n${tree}"
-
+├── Demo.ipynb
+├── LICENSE
+├── README.md
+├── __pycache__
+│   ├── analyze_comments_tblob.cpython-36.pyc
+│   ├── analyze_comments_tblob.cpython-37.pyc
+│   ├── get_sentiment_score.cpython-36.pyc
+│   ├── get_sentiment_score.cpython-37.pyc
+│   ├── make_comments_df.cpython-36.pyc
+│   └── make_comments_df.cpython-37.pyc
+├── dist
+│   ├── movie_analysis-1.0-py3.6.egg
+│   └── movie_analysis-1.0-py3.7.egg
+├── doc
+│   ├── README.txt
+│   └── project_management
+│       ├── Component\ Specification.pdf
+│       ├── Functional\ Specification.pdf
+│       └── whiteboard_11-1
+├── environment.yml
+├── examples
+│   └── correlation_visualization.ipynb
+├── movie_analysis
+│   ├── Demo.ipynb
+│   ├── Figures
+│   │   ├── Cast_Size_dist.pdf
+│   │   ├── Full_Diversity_Dist.pdf
+│   │   ├── linear_fit.pdf
+│   │   ├── scatter.pdf
+│   │   └── tmp.pdf
+│   ├── Untitled.ipynb
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-36.pyc
+│   │   ├── __init__.cpython-37.pyc
+│   │   ├── analyze_comments_tblob.cpython-36.pyc
+│   │   ├── analyze_comments_tblob.cpython-37.pyc
+│   │   ├── diversity_score_module.cpython-36.pyc
+│   │   ├── diversity_score_module.cpython-37.pyc
+│   │   ├── get_YT_URL.cpython-36.pyc
+│   │   ├── get_sentiment_score.cpython-36.pyc
+│   │   ├── get_sentiment_score.cpython-37.pyc
+│   │   ├── make_comments_df.cpython-36.pyc
+│   │   ├── make_comments_df.cpython-37.pyc
+│   │   ├── movie_analysis.cpython-36.pyc
+│   │   ├── movie_correlation_plots.cpython-36.pyc
+│   │   ├── movie_correlation_plots.cpython-37.pyc
+│   │   ├── plot_functions.cpython-36.pyc
+│   │   ├── plot_functions.cpython-37.pyc
+│   │   ├── version.cpython-36.pyc
+│   │   └── version.cpython-37.pyc
+│   ├── analyze_comments_tblob.py
+│   ├── comment_downloader.py
+│   ├── create_subset_demo.ipynb
+│   ├── data
+│   │   ├── configured_data
+│   │   │   └── imdb_subset_100_10strats
+│   │   ├── imdb_subset_100_10strats
+│   │   ├── movie_comments
+│   │   │   ├── comment_files.csv
+│   │   ├── raw_data
+│   │   │   ├── emptydir.txt
+│   │   │   ├── tmdb_5000_credits.csv
+│   │   │   └── tmdb_5000_movies.csv
+│   │   ├── sentiment_scores.csv
+│   │   └── subsetData_withURLS.csv
+│   ├── diversity_score_module.py
+│   ├── download_YT_URLs.ipynb
+│   ├── get_YT_URL.py
+│   ├── get_YT_videoIDs.py
+│   ├── get_diversity_score.ipynb
+│   ├── get_sentiment_score.py
+│   ├── movie_correlation_plots.py
+│   ├── other_developers_code
+│   │   ├── Egbert
+│   │   │   ├── LICENSE
+│   │   │   ├── README.md
+│   │   │   ├── TestFile.json
+│   │   │   └── downloader.py
+│   │   └── emptydir.txt
+│   ├── plot_functions.py
+│   ├── tests
+│   │   ├── Figures
+│   │   │   └── tmp.pdf
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-36.pyc
+│   │   │   ├── __init__.cpython-37.pyc
+│   │   │   ├── test_divscore.cpython-36-PYTEST.pyc
+│   │   │   ├── test_divscore.cpython-37-PYTEST.pyc
+│   │   │   ├── test_plot_functions.cpython-36-PYTEST.pyc
+│   │   │   ├── test_plot_functions.cpython-37-PYTEST.pyc
+│   │   │   ├── test_sentiment.cpython-36-PYTEST.pyc
+│   │   │   ├── test_sentiment.cpython-36.pyc
+│   │   │   └── test_sentiment.cpython-37-PYTEST.pyc
+│   │   ├── test1
+│   │   │   └── testing.csv
+│   │   ├── test_divscore.py
+│   │   ├── test_plot_functions.py
+│   │   └── test_sentiment.py
+│   └── version.py
+├── movie_analysis.egg-info
+│   ├── PKG-INFO
+│   ├── SOURCES.txt
+│   ├── dependency_links.txt
+│   ├── requires.txt
+│   └── top_level.txt
+└── setup.py
 ```
