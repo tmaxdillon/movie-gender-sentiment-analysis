@@ -10,14 +10,14 @@ def test_pdfs_created():
 	assert os.path.isfile(file) is True
 	
 	file2 = 'Figures/tmp2.pdf'
-	fit = pf.linear_regression([1,2],[2,4],file2)
+	fit = pf.linear_regression(np.array([1,2]),np.array([2,4]),file2)
 	assert os.path.isfile(file2) is True
 
 
 def test_fit():
 	# Compare the linear fit against a line
-	a = [0, 1, 2, 3, 4, 5]
-	b = [3, 6, 7, 9, 11, 13]
+	a = np.array([0, 1, 2, 3, 4, 5])
+	b = np.array([3, 6, 7, 9, 11, 13])
 	fit = pf.linear_regression(a,b,'Figures/tmp.pdf')
 	assert fit == b is True
 
