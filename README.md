@@ -1,7 +1,7 @@
 # movie-gender-sentiment-analysis
 Project for CSE 583, Autumn 2018.
 
-##Group members
+## Group Members
 Eric Gomez, Kate Van Ness, Rachel Franz, Trent Dillon, Jamie Park
 
 [movie_analysis](https://github.com/tmaxdillon/movie-gender-sentiment-analysis/tree/master/movie_analysis) folder contains the python codes for the entire process. 
