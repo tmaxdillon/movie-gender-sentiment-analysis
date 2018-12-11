@@ -1,0 +1,14 @@
+{
+  "movie_analysis/tests/test_divscore.py": true,
+  "movie_analysis/tests/test_plot_functions.py::test_fit": true,
+  "movie_analysis/tests/test_plot_functions.py::test_pdfs_created": true,
+  "movie_analysis/tests/test_sentiment.py::TestSentiment::test_add_row": true,
+  "movie_analysis/tests/test_sentiment.py::TestSentiment::test_analyze_neg_comment": true,
+  "movie_analysis/tests/test_sentiment.py::TestSentiment::test_analyze_pos_comment": true,
+  "movie_analysis/tests/test_sentiment.py::TestSentiment::test_column_names": true,
+  "movie_analysis/tests/test_sentiment.py::TestSentiment::test_edge": true,
+  "movie_analysis/tests/test_sentiment.py::TestSentiment::test_find_csv_2": true,
+  "movie_analysis/tests/test_sentiment.py::TestSentiment::test_find_csv_edge": true,
+  "movie_analysis/tests/test_sentiment.py::TestSentiment::test_find_csv_oneshot": true,
+  "movie_analysis/tests/test_sentiment.py::TestSentiment::test_oneshot": true
+}

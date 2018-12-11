@@ -7,5 +7,5 @@ GDS = full_df['gender diversity score']
 SS = full_df['sentiment_score']
 
 # Plots:
-pf.scatter_scores(GDS,SS)
-pf.linear_regression(GDS,SS)
+pf.scatter_scores(GDS,SS,'Figures/scatter.pdf')
+pf.linear_regression(GDS,SS,'Figures/linear_fit.pdf')
