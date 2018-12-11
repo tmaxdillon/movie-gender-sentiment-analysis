@@ -49,5 +49,9 @@ download_from_the_list(input) #input should be a pandas dataframe with the colum
 The package is organized as follows:
 
 ```bash
-tree
+tree=$(tree -tf --noreport -I '*~' --charset ascii $1 |
+       sed -e 's/| \+/  /g' -e 's/[|`]-\+/ */g' -e 's:\(* \)\(\(.*/\)\([^/]\+\)\):\1[\4](\2):g')
+
+printf "# Project tree\n\n${tree}"
+
 ```
