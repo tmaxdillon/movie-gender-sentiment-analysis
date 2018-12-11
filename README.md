@@ -49,5 +49,5 @@ download_from_the_list(input) #input should be a pandas dataframe with the colum
 The package is organized as follows:
 
 ```bash
-python comment_downloader.py input.csv
+tree
 ```
