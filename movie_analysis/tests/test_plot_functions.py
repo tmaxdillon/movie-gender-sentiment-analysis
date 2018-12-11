@@ -2,6 +2,7 @@
 
 from movie_analysis import plot_functions as pf
 import os.path
+import numpy as np
 
 def test_pdfs_created():
 	# Check that there are scatter plots and linear regressions saved to Figures
@@ -19,5 +20,4 @@ def test_fit():
 	a = np.array([0, 1, 2, 3, 4, 5])
 	b = np.array([3, 6, 7, 9, 11, 13])
 	fit = pf.linear_regression(a,b,'Figures/tmp.pdf')
-	assert fit == b is True
-
+	assert np.all(fit == b) is True
