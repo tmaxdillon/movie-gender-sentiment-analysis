@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # Get version and release info, which is all stored in shablona/version.py
 ver_file = os.path.join('movie_analysis', 'version.py')
@@ -9,7 +9,8 @@ with open(ver_file) as f:
 opts = dict(name="movie_analysis",
             description="finds correlation between gender diversity in a movie and overall sentiment of youtube trailer comments",        
             version='1.0',
-            install_requires=['textblob','pytest','pandas']
+            packages=list(find_packages('textblob', 'pytest', 'pandas')),
+            install_requires=list(find_packages('textblob', 'pytest', 'pandas'))
             )
 
 
