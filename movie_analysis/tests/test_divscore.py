@@ -9,7 +9,7 @@
 import os.path
 import unittest
 import pandas as pd
-import diversity_score_module as dsm
+from movie_analysis import diversity_score_module as dsm
 
 class TestDivScore(unittest.TestCase):
 
