@@ -3,3 +3,4 @@ from .version import __version__  # noqa
 from .get_sentiment_score import * # noqa
 from .analyze_comments_tblob import * # noqa
 from .plot_functions import * #noqa
+from .get_YT_URL import *

@@ -9,8 +9,7 @@ with open(ver_file) as f:
 opts = dict(name="movie_analysis",
             description="finds correlation between gender diversity in a movie and overall sentiment of youtube trailer comments",        
             version='1.0',
-            packages=list(find_packages('textblob', 'pytest', 'pandas')),
-            install_requires=list(find_packages('textblob', 'pytest', 'pandas'))
+            install_requires=['bs4','textblob', 'pytest', 'pandas']
             )
 
 
