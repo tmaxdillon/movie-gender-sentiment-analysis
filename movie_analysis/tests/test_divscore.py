@@ -9,6 +9,7 @@
 import os.path
 import unittest
 import pandas as pd
+import numpu as np
 import json
 from movie_analysis import diversity_score_module as dsm
 
@@ -23,7 +24,7 @@ class TestDivScore(unittest.TestCase):
         """This function tests if the values returned by compute_diversity_score 
         are the correct type
         """
-        cast = json.loads(pd.read_csv('data/raw_data/tmdb_5000_credits.csv')['cast'][5]) #load dataset
+        cast = json.loads(pd.read_csv('../data/raw_data/tmdb_5000_credits.csv')['cast'][5]) #load dataset
         [ds,cs] = dsm.compute_diversity_score(cast,True)
         self.assertTrue(type.ds == np.float64 & type.cs == np.float64)
 
@@ -36,7 +37,7 @@ class TestDivScore(unittest.TestCase):
     def test_subsetrows(self):
         """This function tests if the returned dataframe has the correct number of rows
         """
-        df = pd.read_csv('data/raw_data/tmdb_5000_credits.csv')
+        df = pd.read_csv('../data/raw_data/tmdb_5000_credits.csv')
         subsetno = 70
         strata = 10
         subset = dsm.get_subset(df,strata,subsetno)
