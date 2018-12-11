@@ -1,3 +1,5 @@
+cssselect
+lxml
 bs4
 textblob
 pytest
