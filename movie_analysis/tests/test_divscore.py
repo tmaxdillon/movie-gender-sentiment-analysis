@@ -22,8 +22,8 @@ class TestDivScore(unittest.TestCase):
         """This function tests if the values returned by compute_diversity_score 
         are the correct type
         """
-
-        [ds,cs] = dsm.compute_diversity_score()
+        cast = json.loads(pd.read_csv('data/raw_data/tmdb_5000_credits.csv')['cast'][5]) #load dataset
+        [ds,cs] = dsm.compute_diversity_score(cast,True)
         self.assertTrue(type.ds == np.float64 & type.cs == np.float64)
 
     def test_savefig(self):
