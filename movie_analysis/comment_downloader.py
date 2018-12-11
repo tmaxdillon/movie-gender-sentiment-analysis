@@ -6,8 +6,6 @@ Created on Mon Dec 10 11:16:20 2018
 @author: jamie
 """
 
-#!/usr/bin/env python
-
 from __future__ import print_function
 
 import sys
@@ -68,13 +66,12 @@ def download_comments(youtube_id, sleep=1):
     response = session.get(YOUTUBE_COMMENTS_URL.format(youtube_id=youtube_id))
     html = response.text
     reply_cids = extract_reply_cids(html)
-    
     text = []
 
     ret_cids = []
     for comment in extract_comments(html):
         ret_cids.append(comment['cid'])
-        text.append(unicode(comment['text']))
+        text.append(str(comment['text']))
 
     page_token = find_value(html, 'data-token')
     session_token = find_value(html, 'XSRF_TOKEN', 4)
@@ -105,7 +102,7 @@ def download_comments(youtube_id, sleep=1):
         for comment in extract_comments(html):
             if comment['cid'] not in ret_cids:
                 ret_cids.append(comment['cid'])
-                text.append(unicode(comment['text']))
+                text.append(str(comment['text']))
 
         first_iteration = False
         time.sleep(sleep)
@@ -131,7 +128,7 @@ def download_comments(youtube_id, sleep=1):
         for comment in extract_comments(html):
             if comment['cid'] not in ret_cids:
                 ret_cids.append(comment['cid'])
-                text.append(unicode(comment['text']))
+                text.append(str(comment['text']))
         time.sleep(sleep)
     return text
 
@@ -139,44 +136,33 @@ def write_csv(youtube_id, movie_id):
     comments = download_comments(youtube_id)
     df = pd.DataFrame({'comments':comments})
     filename = str(movie_id) + '.csv'
-    df.to_csv(filename, encoding = 'UTF-8', index=False)
+    df.to_csv(filename, encoding='UTF-8', index=False)
 
 def download_from_list(input_file):
     for i in range(len(input_file)):
         youtube_id = input_file['youtube_id'][i]
-        movie_id = input_file['movie_id'][i]
-            
+        movie_id = input_file['movie_id'][i]          
         if not youtube_id or not movie_id:
-            raise ValueError('you need to specify a youtube_id and a movie_id')
-                
+            raise ValueError('you need to specify a youtube_id and a movie_id')          
         print('Downloading Youtube comments for video:', youtube_id)
-        write_csv(youtube_id, movie_id)
-            
+        write_csv(youtube_id, movie_id)     
     print('\nDone!')
 
 def main(argv):
-
     try:
         filename = argv
         input_file = pd.read_csv(filename, sep=',')
-        
         for i in range(len(input_file)):
             youtube_id = input_file['youtube_id'][i]
             movie_id = input_file['movie_id'][i]
-            
             if not youtube_id or not movie_id:
                 raise ValueError('you need to specify a youtube_id and a movie_id')
-                
             print('Downloading Youtube comments for video:', youtube_id)
             write_csv(youtube_id, movie_id)
-            
         print('\nDone!')
-
-
-    except Exception as e:
-        print('Error:', str(e))
+    except Exception as error_details:
+        print('Error:', str(error_details))
         sys.exit(1)
-
 
 if __name__ == "__main__":
     main(sys.argv[1])
