@@ -3,5 +3,4 @@ setup.py
 movie_analysis.egg-info/PKG-INFO
 movie_analysis.egg-info/SOURCES.txt
 movie_analysis.egg-info/dependency_links.txt
-movie_analysis.egg-info/requires.txt
 movie_analysis.egg-info/top_level.txt

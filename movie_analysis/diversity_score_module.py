@@ -6,6 +6,12 @@
 
 import pandas as pd
 import numpy as np
+<<<<<<< HEAD
+=======
+import json
+import matplotlib
+matplotlib.use('PS')
+>>>>>>> 9817f4484dcf0eb073ed2d28f1921eaef943d62c
 import matplotlib.pyplot as plt
 
 #calculate diversity score for a single movie

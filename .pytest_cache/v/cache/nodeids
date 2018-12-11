@@ -1,4 +1,7 @@
 [
+  "movie_analysis/tests/test_divscore.py::TestDivScore::test_correcttype",
+  "movie_analysis/tests/test_divscore.py::TestDivScore::test_savefig",
+  "movie_analysis/tests/test_divscore.py::TestDivScore::test_subsetrows",
   "movie_analysis/tests/test_plot_functions.py::test_pdfs_created",
   "movie_analysis/tests/test_plot_functions.py::test_fit",
   "movie_analysis/tests/test_sentiment.py::TestSentiment::test_add_row",
