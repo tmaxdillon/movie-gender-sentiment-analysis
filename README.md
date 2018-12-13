@@ -29,6 +29,9 @@ Output: subset dataframe
 ### Example
 For an example/demo on how these functions can be used, refer to [create_subset_demo.ipynb](https://github.com/tmaxdillon/movie-gender-sentiment-analysis/blob/master/movie_analysis/create_subset.ipynb) 
 
+## Get YouTube video IDs from URLs
+Use get_youtube_video_ids.py to extract video ids (each YouTube video has a unique identifier at the end of its URL) for a list of movie titles. Input: csv file containing a column of movie titles, output: updated data file with two additional columns for YouTube URL and YouTube video ID.
+
 ## Comment Extraction 
 Use [comment_downloader.py](https://github.com/tmaxdillon/movie-gender-sentiment-analysis/blob/master/movie_analysis/comment_downloader.py) to download comments from each movie trailer.
 Input: csv file containing (youtube_id, movie_id)s. The header name should be "youtube_id" and "movie_id"
